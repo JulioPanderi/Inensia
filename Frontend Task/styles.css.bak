@@ -1,0 +1,12 @@
+﻿table, th, td {
+  border: 1pt solid;
+  padding: 1pt;
+}
+
+td {
+  padding: 5pt;
+}
+
+thead.td {
+  background-color: #D6EEEE;
+}
