@@ -15,7 +15,8 @@ namespace Backend.Models
         public string IP { get; set; }
 
         public string Message
-        { get
+        {
+            get
             {
                 return string.Format("{0}/{1} - {2}: {3}", Class, Function, IP, Error);
             }

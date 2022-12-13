@@ -1,13 +1,10 @@
 document.addEventListener('readystatechange', function(event) {
     if (document.readyState === "complete") {
         let xmlData = getXmlData();
-		//createTable(xmlData);
     }
 });
 
-async function getXmlData()
-{
-	//console.log(xml);
+async function getXmlData() {
 	const myRequest = new Request('https://test.ce2s.net/Study.xml');
 	fetch(myRequest)
     .then((response) => response.text())
@@ -16,8 +13,7 @@ async function getXmlData()
     });
 };
 
-function createTable(xmlData)
-{
+function createTable(xmlData) {
 	let pathSimulationResult = "/Result/Item[@alias='sys_System'][position()='rowIndexValue']/Relationships[1]/Item[1]/Relationships[1]/Item[1]/Relationships[1]/Item[1]/Relationships[1]/Item[1]/Relationships[1]/Item[@alias='ar_SimulationResult']/ar_resultname/text()" + ";" +
 							   "/Result/Item[@alias='sys_System'][position()='rowIndexValue']/Relationships[1]/Item[1]/Relationships[1]/Item[1]/Relationships[1]/Item[1]/Relationships[1]/Item[1]/Relationships[1]/Item[@alias='ar_SimulationResult']/ar_resultvalue/text()" + ";" +
 							   "/Result/Item[@alias='sys_System'][position()='rowIndexValue']/Relationships[1]/Item[1]/Relationships[1]/Item[1]/Relationships[1]/Item[1]/Relationships[1]/Item[1]/Relationships[1]/Item[@alias='ar_SimulationResult']/ar_resultunit/text()" +  ";" +
@@ -48,8 +44,7 @@ function createTable(xmlData)
 	createTableBody(table, columns, xmlData);
 }
 
-function createTableBody(table, columns, xmlData)
-{
+function createTableBody(table, columns, xmlData) {
 	let iniPath = "//Result[position()=1]/Item[@alias='sys_System']";
 	let rows = getXmlElementByXpath(xmlData, iniPath);
 
@@ -90,8 +85,7 @@ function createTableBody(table, columns, xmlData)
 	}
 }
 
-function createTableHeader(table, columns)
-{
+function createTableHeader(table, columns) {
 	var th = table.createTHead();
 	let tr = th.insertRow();
 	
